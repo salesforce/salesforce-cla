@@ -500,7 +500,7 @@ class GitHubSpec extends PlaySpec with GuiceOneAppPerSuite {
       appliedLabels.value.map(_.\("name").as[String]) must contain ("foobar")
     }
 
-    "work with non-existant labels" in {
+    "work with non-existent labels" in {
       val appliedLabels = await(gitHub.applyLabel(testExternalPullRequestOwnerRepo, "asdfasdf", testExternalPullRequestNum, testToken1))
       (appliedLabels.head.get \ "name").as[String] must equal ("asdfasdf")
     }
